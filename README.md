@@ -1,2 +1,2 @@
-# number-guessing-game
-[certificate] - [freeCodeCamp] - [Relational Database]
+# Number-Guessing-Game
+### [certificate] - [freeCodeCamp] - [Relational Database]
