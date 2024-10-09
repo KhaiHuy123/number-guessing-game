@@ -33,14 +33,14 @@ while read GUESS_NUM; do
     # give user a hint for next attemp
     else
       if [[ $GUESS_NUM -gt $RANDOM_NUM ]]; then
-        echo -n "It's lower than that, guess again:"
+        echo -n "It's lower than that, guess again:" # if you want to quit, press Ctrl + C
       else
-        echo -n "It's higher than that, guess again:"
+        echo -n "It's higher than that, guess again:" # if you want to quit, press Ctrl + C
       fi
     fi
   # if guessing num is not a number, try again 
   else
-    echo -n "That is not an integer, guess again:"
+    echo -n "That is not an integer, guess again:" # if you want to quit, press Ctrl + C
   fi
   ATTEMP=$(($ATTEMP + 1)) # increment counter each loop
 done
@@ -55,3 +55,6 @@ fi
 INSERT_NEW_BEST_RECORD=$($PSQL "INSERT INTO games(user_id, best_record) VALUES($USER_ID, $ATTEMP)")
 GAMES_PLAYED_PLUS=$(($GAMES_PLAYED + 1))
 UPDATE_USER_INFO=$($PSQL "UPDATE users SET num_of_attemps='$GAMES_PLAYED_PLUS' WHERE user_id = '$USER_ID'")
+
+# hint :
+# if you want to quit, press Ctrl + C
